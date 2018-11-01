@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+from . import views
 
 urlpatterns = [
-    path(r'^$', views.home), #expression régulière = fichiers qui commencent (^) par *rien* et qui terminent ($) par *rien* => va chercher une fonction 'home' dans le module 'views'
-    path(r'^admin/', admin.site.urls), # fichiers qui commencent par 'admin'
+    re_path(r'^$', views.home), #expression régulière = fichiers qui commencent (^) par *rien* et qui terminent ($) par *rien* => va chercher une fonction 'home' dans le module 'views'
+    re_path(r'^admin/', admin.site.urls), # fichiers qui commencent par 'admin' vers url admin/
 ]
