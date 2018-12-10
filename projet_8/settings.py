@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pur_beurre.apps.PurBeurreConfig', #migration
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,9 +76,9 @@ WSGI_APPLICATION = 'projet_8.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pur_beurre',
-        'USERNAME':'django',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER':'django',
         'PASSWORD':'jojo',
         'PORT':'3306',
         'HOST': 'localhost',
