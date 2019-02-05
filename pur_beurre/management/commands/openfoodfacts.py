@@ -17,7 +17,8 @@ class Command(BaseCommand):
         data_raw = url.json()
         data_categories = data_raw["tags"]
         for categories in data_categories[0:NB_CAT_REQUEST]:
-            cat_prod = Categories.objects.create(name=categories["name"])
+            cat_prod, created = Categories.objects.get_or_create(name=categories["name"])
+            #cat_prod.save()
             print(cat_prod)
 
 
