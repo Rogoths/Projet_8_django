@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     re_path(r'^$', views.home), #expression régulière = fichiers qui commencent (^) par *rien* et qui terminent ($) par *rien* => va chercher une fonction 'home' dans le module 'views'
     re_path(r'^admin/', admin.site.urls), # fichiers qui commencent par 'admin' vers url admin/
+    re_path(r'^result/', views.result),
 ]
